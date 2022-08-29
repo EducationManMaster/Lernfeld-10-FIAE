@@ -5,9 +5,10 @@ body{
 
   font-family: "Roboto", sans-serif;
   font-size: 0;
+  font-weight: 400;
   color: rgba(0,0,0,0.9);
 
-  background-color: #FAFAFA;
+  background-color: #F5F5F5;
 
 }
 
@@ -36,19 +37,25 @@ div{
 #header{
 
   width: 100%;
-  height: 250px;
+  height: 225px;
 
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 
-  background-color: #C0CA33;
+  background-color: #2196F3;
 
 }
+
+.header_good{ background: linear-gradient(45deg, rgba(139,195,74,1) 0%, rgba(192,202,51,1) 100%); }
+.header_warn{ background: linear-gradient(45deg, rgba(255,179,0,1) 0%, rgba(253,216,53,1) 100%);  }
+.header_bad { background: linear-gradient(45deg, rgba(211,47,47,1) 0%, rgba(239,83,80,1) 100%); }
 
 #header_bar{
 
   width: 100%;
   height: 65px;
+
+  border-bottom: 1px solid rgba(0,0,0,0.15);
 
 }
 
@@ -72,5 +79,101 @@ div{
   font-size: 20px;
   color: rgba(255,255,255,0.9);
   line-height: 65px;
+
+}
+
+#header_info{
+
+  position: relative;
+  width: 100%;
+  height: calc(100% - 65px);
+
+}
+
+#header_info_icon{
+
+  width: 100px;
+  height: 100%;
+
+  margin-left: 25px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+
+.header_info_icon_good{ background-image: url("img/gut.svg");     }
+.header_info_icon_warn{ background-image: url("img/info.svg");    }
+.header_info_icon_bad { background-image: url("img/warnung.svg"); }
+
+#header_info_wrapper{
+
+  position: absolute;
+  width: calc(100% - 125px);
+
+  padding-left: 25px;
+  padding-right: 25px;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+#header_info_status{
+
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  font-size: 30px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 700;
+
+}
+
+#header_info_text{
+
+  width: 100%;
+  font-size: 17px;
+  color: rgba(255,255,255,0.85);
+
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+#body{
+
+  width: 100%;
+  padding: 6px;
+  padding-top: 25px;
+
+}
+
+.tile{
+
+  margin: 6px;
+
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 25px;
+
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  background-color: #FFFFFF;
+
+}
+
+.tile_small{
+
+  width: calc(50% - 12px);
+  max-width: 200px;
+  max-height: 200px;
+
+}
+
+.tile_large{
+
+  width: calc(100% - 12px);
+  max-width: 400px;
+  max-height: 200px;
 
 }
