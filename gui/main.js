@@ -49,6 +49,7 @@ function setInfo(state) {
 function applyGUI() {
 
   var tile = document.getElementsByClassName("tile");
+  var body = document.getElementById("main_wrapper");
 
   for (var i = 0; i < tile.length; i++) {
 
@@ -58,7 +59,7 @@ function applyGUI() {
 
     }else{
 
-      tile[i].style.height = ((tile[i].offsetWidth / 2) - 12.5) + "px";
+      tile[i].style.height = ((tile[i].offsetWidth / 2) - 12) + "px";
 
     }
 
