@@ -50,8 +50,18 @@ function test(element, wert) {
   var value = elm.getElementsByClassName("tile_value")[0];
   var state = elm.getElementsByClassName("tile_footer")[0];
 
-  if(wert <= 4000){ testWarn(value, state, wert);
-  }else{            testBad(value, state, wert); }
+  if(wert < 2000){                        testGood(value, state, wert);
+  }else if(wert >= 2000 && wert <= 4000){ testWarn(value, state, wert);
+  }else{                                  testBad(value, state, wert); }
+
+}
+
+function testGood(value, state, wert) {
+
+  value.innerHTML = wert;
+  state.className = "tile_footer tile_footer_good";
+
+  setInfo("g")
 
 }
 
