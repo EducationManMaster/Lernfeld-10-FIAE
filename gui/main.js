@@ -41,6 +41,35 @@ function setInfo(state) {
 
 }
 
+// ---------------------------------------------------------------------------
+//
+
+function testWarnung(wert) {
+
+  var energie = document.getElementById("energie");
+  var value   = energie.getElementsByClassName("tile_value")[0];
+  var state   = energie.getElementsByClassName("tile_footer")[0];
+
+  value.innerHTML = wert;
+  state.className = "tile_footer tile_footer_warn";
+
+  setInfo("w")
+
+}
+
+function testProblem(wert) {
+
+  var energie = document.getElementById("energie");
+  var value   = energie.getElementsByClassName("tile_value")[0];
+  var state   = energie.getElementsByClassName("tile_footer")[0];
+
+  value.innerHTML = wert;
+  state.className = "tile_footer tile_footer_bad";
+
+  setInfo("b")
+
+}
+
 
 
 // ---------------------------------------------------------------------------
