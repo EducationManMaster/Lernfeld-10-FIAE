@@ -1,3 +1,61 @@
+function changePeople() {
+
+  var slider = document.getElementById("people_slider");
+  var value = document.getElementById("people_value");
+
+  value.innerHTML = slider.value;
+
+}
+
+function submitPeople() {
+
+  var slider = document.getElementById("people_slider");
+
+  console.log(slider.value);
+
+}
+
+function selectBox(elmt) {
+
+  elmt.getElementsByTagName("input")[0].click();
+
+
+}
+
+
+
+// ---------------------------------------------------------------------------
+//
+
+function settingsON() {
+
+  var settings = document.getElementById("settings_wrapper");
+  var blocker  = document.getElementById("settings_blocker");
+  var menu     = document.getElementById("settings");
+
+  settings.style.display = "inline-block";
+  blocker.className = "setting_in";
+  menu.className = "menu_in";
+
+
+}
+
+function settingsOFF() {
+
+  var settings = document.getElementById("settings_wrapper");
+  var blocker  = document.getElementById("settings_blocker");
+  var menu     = document.getElementById("settings");
+
+  blocker.className = "setting_out";
+  menu.className = "menu_out";
+
+  setTimeout(function(){ settings.style.display = "none"; }, 310);
+
+}
+
+
+
+
 // ---------------------------------------------------------------------------
 // Funktion zum setzen der Infotafel
 

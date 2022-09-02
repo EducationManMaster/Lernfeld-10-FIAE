@@ -6,6 +6,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -18,13 +19,63 @@
 
 <body>
 
+  <div id="settings_wrapper">
+
+    <div id="settings_blocker"></div>
+
+    <div id="settings">
+
+      <div id="settings_header">
+
+        <div id="settings_close" onclick="settingsOFF();"></div>
+        <div id="settings_text">Einstellungen</div>
+
+      </div>
+
+      <div class="setting_slider">
+
+        <div class="setting_slider_title">Personen im Haushalt</div>
+        <div class="setting_slider_range">
+          <input type="range" min="1" max="10" value="1" id="people_slider" oninput="changePeople();" onchange="submitPeople();">
+        </div>
+        <div class="setting_slider_value" id="people_value">1</div>
+
+      </div>
+
+      <div id="settings_box">
+
+        <div class="setting_checkbox" onclick="selectBox(this);" id="warnungen">
+
+          <div class="setting_checkbox_box">
+            <input type="checkbox" checked="checked">
+          </div>
+
+          <div class="setting_checkbox_text" >Warnungen</div>
+
+        </div>
+        <div class="setting_checkbox" onclick="selectBox(this);" id="probleme">
+
+          <div class="setting_checkbox_box">
+            <input type="checkbox" checked="checked">
+          </div>
+
+          <div class="setting_checkbox_text">Probleme</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   <div id="main_wrapper">
 
     <div id="header">
 
       <div id="header_bar">
 
-        <div id="header_bar_icon"></div>
+        <div id="header_bar_icon" onclick="settingsON();"></div>
         <div id="header_bar_text">Mein Zuhause</div>
 
       </div>
