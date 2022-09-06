@@ -3,6 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInfo("g");
   resizeGUI();
+
+  user_values.calc();
+  changeAllWarnings();
+
+  randomizeAll();
+
+  fillAll();
   plotEverything();
 
 });
@@ -10,13 +17,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+function demo(elmt, value) {
+
+  elmt = elmt.toLowerCase();
+
+  switch (elmt) {
+
+    case "energie": user_data.power.push(value);  break;
+    case "wasser":  user_data.water.push(value);  break;
+    case "gas":     user_data.gas.push(value);    break;
+    case "co2":     user_data.carbon.push(value); break;
+
+  }
+
+  fillAll();
+  plotEverything();
+
+}
 
 
 
 
-
-// ---------------------------------------------------------------------------
-//
+/*
 
 function test(element, wert) {
 
@@ -56,3 +78,4 @@ function testBad(value, state, wert) {
   setInfo("b")
 
 }
+*/

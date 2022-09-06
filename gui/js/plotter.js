@@ -1,7 +1,5 @@
 function plotEverything() {
 
-  user_values.calc();
-
   plotDaily("power");
   plotMonthly("power");
 

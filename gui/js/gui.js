@@ -64,6 +64,43 @@ function setInfo(state) {
 
 
 // ---------------------------------------------------------------------------
+// Füllt die Übersicht
+
+function fillAll() {
+
+  fillInfo("energie", user_data.power, user_values.power);
+  fillInfo("wasser", user_data.water, user_values.water);
+  fillInfo("gas", user_data.gas, user_values.gas);
+  fillInfo("co2", user_data.carbon, user_values.carbon);
+
+}
+
+function fillInfo(elmt, plot, limits) {
+
+  var info = document.getElementById(elmt);
+
+  var value = info.getElementsByClassName("tile_value")[0];
+  var state = info.getElementsByClassName("tile_footer")[0];
+
+  var total = 0;
+  for (var i = 0; i < plot.length; i++) { total += plot[i]; }
+
+  value.innerHTML = total;
+
+  if(total >= limits.warn){
+    state.className = "tile_footer tile_footer_warn";
+    setInfo("w");
+  }
+
+  if(total >= limits.prob){
+    state.className = "tile_footer tile_footer_bad";
+    setInfo("b");
+  }
+
+}
+
+
+// ---------------------------------------------------------------------------
 // Öffnen der Einstellungen
 
 function settingsON() {
@@ -102,7 +139,9 @@ function changePeople() {
   var slider = document.getElementById("people_slider");
   var value = document.getElementById("people_value");
 
-  value.innerHTML = slider.value;
+  user_settings.people = slider.value
+  value.innerHTML = user_settings.people;
+  changeAllWarnings();
 
 }
 
@@ -119,4 +158,33 @@ function submitPeople() {
 
 function selectBox(elmt) {
   elmt.getElementsByTagName("input")[0].click();
+}
+
+
+
+// ---------------------------------------------------------------------------
+// Berechnet und ändert Warnung & Problem
+
+function changeAllWarnings() {
+
+  user_values.calc();
+
+  changeWarnings("settings_value_power", user_values.power);
+  changeWarnings("settings_value_water", user_values.water);
+  changeWarnings("settings_value_gas",   user_values.gas  );
+
+  fillAll();
+  plotEverything();
+
+}
+
+function changeWarnings(elmt, value) {
+
+  var setting = document.getElementById(elmt);
+  var warnDOM = setting.getElementsByClassName("settings_value_value")[0];
+  var probDOM = setting.getElementsByClassName("settings_value_value")[1];
+
+  warnDOM.innerHTML = value.warn;
+  probDOM.innerHTML = value.prob;
+
 }
