@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <script type="text/javascript" src="js/userData.js"></script>
+  <script type="text/javascript" src="js/gui.js"></script>
+  <script type="text/javascript" src="js/plotter.js"></script>
   <script type="text/javascript" src="main.js"></script>
 
   <title>LF10 FIAE</title>
@@ -190,12 +193,10 @@
         </div>
 
         <div class="tile_canvas_wrapper">
-          <canvas class="tile_canvas" id="canvas_month_day"></canvas>
+          <canvas class="tile_canvas" id="canvas_day_power"></canvas>
         </div>
 
-
       </div>
-
 
       <div class="tile tile_large">
 
@@ -208,6 +209,57 @@
           <canvas class="tile_canvas" id="canvas_month_power"></canvas>
         </div>
 
+      </div>
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_water"></div>
+          <div class="tile_header_text">Wasser Tagesübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_day_water"></canvas>
+        </div>
+
+      </div>
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_water"></div>
+          <div class="tile_header_text">Wasser Monatsübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_month_water"></canvas>
+        </div>
+
+      </div>
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_gas"></div>
+          <div class="tile_header_text">Gas Tagesübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_day_gas"></canvas>
+        </div>
+
+      </div>
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_gas"></div>
+          <div class="tile_header_text">Gas Monatsübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_month_gas"></canvas>
+        </div>
 
       </div>
 
