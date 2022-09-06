@@ -19,7 +19,7 @@
 
 <body>
 
-  <div id="settings_wrapper">
+  <div id="settings_wrapper" style="display: none;">
 
     <div id="settings_blocker"></div>
 
@@ -108,7 +108,7 @@
 
         <div class="tile_content">
           <div class="tile_wrapper">
-            <div class="tile_value">2192</div>
+            <div class="tile_value">0</div>
             <div class="tile_unit">kW/h</div>
           </div>
         </div>
@@ -128,7 +128,7 @@
 
         <div class="tile_content">
           <div class="tile_wrapper">
-            <div class="tile_value">2783</div>
+            <div class="tile_value">0</div>
             <div class="tile_unit">L</div>
           </div>
         </div>
@@ -147,8 +147,8 @@
 
         <div class="tile_content">
           <div class="tile_wrapper">
-            <div class="tile_value">876</div>
-            <div class="tile_unit">m³</div>
+            <div class="tile_value">0</div>
+            <div class="tile_unit">kW/h</div>
           </div>
         </div>
 
@@ -166,7 +166,7 @@
 
         <div class="tile_content">
           <div class="tile_wrapper">
-            <div class="tile_value">71</div>
+            <div class="tile_value">0</div>
             <div class="tile_unit">kg</div>
           </div>
         </div>
@@ -177,8 +177,43 @@
 
       <div class="body_title">Details</div>
 
-      <div class="tile tile_large"></div>
-      <div class="tile tile_large"></div>
+
+
+
+
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_power"></div>
+          <div class="tile_header_text">Energie Tagesübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_month_day"></canvas>
+        </div>
+
+
+      </div>
+
+
+      <div class="tile tile_large">
+
+        <div class="tile_header">
+          <div class="tile_header_icon tile_header_icon_power"></div>
+          <div class="tile_header_text">Energie Monatsübersicht</div>
+        </div>
+
+        <div class="tile_canvas_wrapper">
+          <canvas class="tile_canvas" id="canvas_month_power"></canvas>
+        </div>
+
+
+      </div>
+
+
+
+
 
     </div>
 

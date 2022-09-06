@@ -138,10 +138,6 @@ div{
 
 }
 
-
-
-
-
 .setting_slider{
 
   width: 100%;
@@ -211,11 +207,6 @@ div{
 
 
 }
-
-
-
-
-
 
 #settings_box{
 
@@ -290,8 +281,6 @@ div{
   padding-left: 30px;
 
 }
-
-
 
 /*----------------------------------------------------------------------------------------------------------*/
 
@@ -543,3 +532,31 @@ div{
 .tile_footer_good{ background-color: #9CCC65; }
 .tile_footer_warn{ background-color: #FBC02D; }
 .tile_footer_bad { background-color: #F44336; }
+
+
+
+
+
+
+
+
+.tile_canvas_wrapper{
+
+  position: relative;
+
+  width: 100%;
+  height: calc(100% - 35px);
+
+  padding: 15px;
+
+}
+
+.tile_canvas{
+
+  position: absolute;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+
+}
