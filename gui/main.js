@@ -1,6 +1,8 @@
 window.addEventListener("resize", resizeGUI);
 document.addEventListener("DOMContentLoaded", function() {
 
+  initSocket();
+
   setInfo("g");
   resizeGUI();
 

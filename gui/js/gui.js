@@ -90,11 +90,13 @@ function fillInfo(elmt, plot, limits) {
   if(total >= limits.warn){
     state.className = "tile_footer tile_footer_warn";
     setInfo("w");
+    sendEmail(elmt, "warn", total);
   }
 
   if(total >= limits.prob){
     state.className = "tile_footer tile_footer_bad";
     setInfo("b");
+    sendEmail(elmt, "prob", total);
   }
 
 }

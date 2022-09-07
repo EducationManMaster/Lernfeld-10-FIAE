@@ -28,7 +28,7 @@ function plotDaily(type) {
     case "power":
       canvas = "canvas_day_power";
       data   = user_data.power;
-      color  = "#FFB74D";
+      color  = "#AED581";
       unit   = " kW/h"
     break;
 
@@ -130,7 +130,7 @@ function plotMonthly(type) {
       prob   = user_values.power.prob;
       data   = user_data.power;
       unit   = " kW/h"
-      color  = "#FFB74D"
+      color  = "#AED581"
     break;
 
     case "water":
@@ -184,13 +184,17 @@ function plotMonthly(type) {
   var sum   = 0;
   var total = 0;
 
+
+
   for (var i = 0; i < data.length; i++) { total += data[i]; }
+  if(total < prob){ total = prob; }
+
   for (var i = 0; i < data.length; i++) {
 
     sum += data[i];
 
-    var x = (w * i);
-    var y = (c.height - (h * ((100 / total) * sum)));
+    x = (w * i);
+    y = (c.height - (h * ((100 / total) * sum)));
 
     ctx.beginPath();
     ctx.strokeStyle = color;
@@ -205,6 +209,24 @@ function plotMonthly(type) {
     dy = y;
 
   }
+
+  y = (c.height - (h * ((100 / total) * prob)));
+  ctx.beginPath();
+  ctx.strokeStyle = "#F44336";
+  ctx.lineWidth = 4;
+  ctx.setLineDash([0, 0]);
+  ctx.moveTo(dx-75, y);
+  ctx.lineTo(x+75, y);
+  ctx.stroke();
+
+  y = (c.height - (h * ((100 / total) * warn)));
+  ctx.beginPath();
+  ctx.strokeStyle = "#FBC02D";
+  ctx.lineWidth = 4;
+  ctx.setLineDash([0, 0]);
+  ctx.moveTo(dx-75, y);
+  ctx.lineTo(x+75, y);
+  ctx.stroke();
 
   ctx.beginPath();
   ctx.fillStyle = color;
