@@ -1,0 +1,19 @@
+
+name: CICD
+
+on: push
+
+jobs:
+  autorun:
+    name: Server Task-Manager
+    runs-on: self-hosted
+    steps:
+    
+      - name: Stopp des Servers
+        run: pgrep -f lf8_taskmanager_socket | awk '{print "kill -9 " $1}' | sh
+        
+      - name: Auswechseln der Daten
+        run: rm -rf taskmanager && git clone https://github.com/EducationManMaster/Lernfeld-08.git taskmanager
+        
+      - name: Start des Servers
+        run: RUNNER_TRACKING_ID="" && python3 taskmanager/python/lf8_taskmanager_socket.py &
