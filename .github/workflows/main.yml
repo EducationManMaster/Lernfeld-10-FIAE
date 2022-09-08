@@ -37,8 +37,6 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-jobs:
   autorun:
     name: RPi Hub push
     runs-on: self-hosted
