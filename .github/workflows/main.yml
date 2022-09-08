@@ -4,16 +4,51 @@ name: CICD
 on: push
 
 jobs:
+  run-linters:
+    name: Lint code
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          
+      - name: Install npm
+        run:  npm install
+      
+      - name: Optionator
+        run: npm install optionator --save
+        
+      - name: Install dependencies
+        run: npm ci
+
+      - name: install
+        run:  npm install react
+      
+      - name: ESlinter setup
+        run: npm install -g eslint
+        
+      - name: Run Eslint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
+
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
   autorun:
-    name: Server Task-Manager
+    name: RPi Hub push
     runs-on: self-hosted
     steps:
     
       - name: Stopp des Servers
-        run: pgrep -f lf8_taskmanager_socket | awk '{print "kill -9 " $1}' | sh
+        run: pgrep -f lf10_hub_server | awk '{print "kill -9 " $1}' | sh
         
       - name: Auswechseln der Daten
-        run: rm -rf taskmanager && git clone https://github.com/EducationManMaster/Lernfeld-08.git taskmanager
+        run: rm -rf taskmanager && git clone https://github.com/EducationManMaster/Lernfeld-10-FIAE
         
       - name: Start des Servers
-        run: RUNNER_TRACKING_ID="" && python3 taskmanager/python/lf8_taskmanager_socket.py &
+        run: RUNNER_TRACKING_ID="" && python3 taskmanager/python/lf10_hub_server.py &
