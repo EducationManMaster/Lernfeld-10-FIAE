@@ -48,7 +48,7 @@ jobs:
         run: pgrep -f lf10_hub_server | awk '{print "kill -9 " $1}' | sh
         
       - name: Auswechseln der Daten
-        run: rm -rf taskmanager && git clone https://github.com/EducationManMaster/Lernfeld-10-FIAE
+        run: rm -rf hub_server && git clone https://github.com/EducationManMaster/Lernfeld-10-FIAE
         
       - name: Start des Servers
-        run: RUNNER_TRACKING_ID="" && python3 taskmanager/python/lf10_hub_server.py &
+        run: RUNNER_TRACKING_ID="" && python3 lf10/python/lf10_hub_server.py &
